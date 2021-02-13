@@ -70,24 +70,23 @@ class BankAccount {
         // Creates new scanner
         Scanner scanner = new Scanner(System.in);
 
-        // Menu printing
+        // User info prints when first brought to menu
         System.out.println("\n");
         System.out.println("\n");
         System.out.println("Welcome: " + customerName);
         System.out.println("Your ID is: " + customerId);
-        System.out.println("\n");
-        System.out.println("A. Check Balance");
-        System.out.println("B. Deposit");
-        System.out.println("C. Withdraw");
-        System.out.println("D. Previous Transaction");
-        System.out.println("E. Exit");
 
         // do while loop for taking user choices
         do {
-            System.out.println("===========================================================================");
-            System.out.println("Enter an option");
-            System.out.println("===========================================================================");
+            // Menu printing
+            System.out.println("\nWhat would you like to do?");
+            System.out.println("A. Check Balance");
+            System.out.println("B. Deposit");
+            System.out.println("C. Withdraw");
+            System.out.println("D. Previous Transaction");
+            System.out.println("E. Exit");
             option = scanner.next().charAt(0);
+            option = Character.toUpperCase(option);
             System.out.println("\n");
 
             switch (option) {
