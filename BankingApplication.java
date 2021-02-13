@@ -9,6 +9,10 @@ public class BankingApplication {
     // My main method
     public static void main(String[] args) {
 
+        //Create a menu for options and input like you did in the C# app
+        //scanner asks for account name
+        //random id number needs to generate
+
         // Creates starter account
         BankAccount starterAccount = new BankAccount("Moneybags", "42069");
         // Starts up the banking menu for the user
