@@ -1,4 +1,4 @@
-// package BankingApplication;
+package BankingApplication;
 
 //import scanner
 import java.util.Scanner;
@@ -67,11 +67,11 @@ class BankAccount {
     void getPreviousTransaction() {
         // If transaction was a positive number
         if (previousTransaction > 0) {
-            System.out.println("You Deposited: " + previousTransaction);
+            System.out.println("You Deposited: $" + previousTransaction);
         }
         // If transaction was a negative number
         else if (previousTransaction < 0) {
-            System.out.println("You Withdrew: " + Math.abs(previousTransaction));
+            System.out.println("You Withdrew: $" + Math.abs(previousTransaction));
         } // If transaction was zero
         else {
             System.out.println("No transaction made!");
@@ -102,7 +102,6 @@ class BankAccount {
             System.out.println("E. Exit");
             option = scanner.next().charAt(0);
             option = Character.toUpperCase(option);
-            System.out.println("\n");
 
             switch (option) {
 
@@ -111,7 +110,6 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("Your current balance: " + balance);
                     System.out.println("---------------------------------------------------------------------------");
-                    System.out.println("\n");
                     break;
 
                 // After user selects deposit option
@@ -123,7 +121,6 @@ class BankAccount {
                     deposit(amount);
                     //User is informed of success
                     System.out.println("\nSuccess! Your deposit was made for $" + amount);
-                    System.out.println("\n");
                     break;
 
                 // After user selects withdraw option
@@ -135,7 +132,6 @@ class BankAccount {
                     withdraw(amount2);
                     //User is informed of success
                     System.out.println("\nSuccess! Your withdrawal was made for $" + amount2);
-                    System.out.println("\n");
                     break;
 
                 // Line to print previous transaction
@@ -143,7 +139,6 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     getPreviousTransaction();
                     System.out.println("---------------------------------------------------------------------------");
-                    System.out.println("\n");
                     break;
 
                 // Upon choosing the exit option...
