@@ -1,4 +1,4 @@
-package BankingApplication;
+// package BankingApplication;
 
 //import scanner
 import java.util.Scanner;
@@ -10,11 +10,15 @@ public class BankingApplication {
     public static void main(String[] args) {
 
         //Create a menu for options and input like you did in the C# app
+        System.out.println("What is your name?");
         //scanner asks for account name
+        Scanner initScan = new Scanner(System.in);
+        //account name is set to the next user-input string
+        String acctName = initScan.next();
         //random id number needs to generate
-
         // Creates starter account
-        BankAccount starterAccount = new BankAccount("Moneybags", "42069");
+        BankAccount starterAccount = new BankAccount(acctName, "42069");
+        //Asks user for opening deposit
         // Starts up the banking menu for the user
         starterAccount.showMenu();
     }
