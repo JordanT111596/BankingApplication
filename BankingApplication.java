@@ -15,11 +15,18 @@ public class BankingApplication {
         Scanner initScan = new Scanner(System.in);
         //account name is set to the next user-input string
         String acctName = initScan.next();
-        //random 5 digit id number is generated
+        //random id number is generated up to 5 digits
         int randomId = (int)(Math.random() * 100000);
         // Creates starter account
         BankAccount starterAccount = new BankAccount(acctName, randomId);
         //Asks user for opening deposit
+        System.out.println("\nWhat is your opening deposit?");
+        //Opening deposit is set to user input
+        double openDep = initScan.nextDouble();
+        //Deposit is made into the account
+        starterAccount.deposit(openDep);
+        //User is informed of success
+        System.out.println("Success! Your opening deposit was made for $" + openDep);
         // Starts up the banking menu for the user
         starterAccount.showMenu();
     }
@@ -28,8 +35,8 @@ public class BankingApplication {
 // Class used for creating bank account objects
 class BankAccount {
     // variables for account
-    int balance;
-    int previousTransaction;
+    double balance;
+    double previousTransaction;
     String customerName;
     int customerId;
 
@@ -41,7 +48,7 @@ class BankAccount {
     }
 
     // Method for making deposits
-    void deposit(int amount) {
+    void deposit(double amount) {
         if (amount != 0) {
             balance = balance + amount;
             previousTransaction = amount;
@@ -49,7 +56,7 @@ class BankAccount {
     }
 
     // Method for making withdrawls
-    void withdraw(int amount) {
+    void withdraw(double amount) {
         if (amount != 0) {
             balance = balance - amount;
             previousTransaction = -amount;
@@ -112,8 +119,10 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to deposit?");
                     System.out.println("---------------------------------------------------------------------------");
-                    int amount = scanner.nextInt();
+                    double amount = scanner.nextDouble();
                     deposit(amount);
+                    //User is informed of success
+                    System.out.println("\nSuccess! Your deposit was made for $" + amount);
                     System.out.println("\n");
                     break;
 
@@ -122,8 +131,10 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to withdraw?");
                     System.out.println("---------------------------------------------------------------------------");
-                    int amount2 = scanner.nextInt();
+                    double amount2 = scanner.nextDouble();
                     withdraw(amount2);
+                    //User is informed of success
+                    System.out.println("\nSuccess! Your withdrawal was made for $" + amount2);
                     System.out.println("\n");
                     break;
 
