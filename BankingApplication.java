@@ -10,14 +10,15 @@ public class BankingApplication {
     public static void main(String[] args) {
 
         //Create a menu for options and input like you did in the C# app
-        System.out.println("What is your name?");
+        System.out.println("\nWhat is your name?");
         //scanner asks for account name
         Scanner initScan = new Scanner(System.in);
         //account name is set to the next user-input string
         String acctName = initScan.next();
-        //random id number needs to generate
+        //random 5 digit id number is generated
+        int randomId = (int)(Math.random() * 100000);
         // Creates starter account
-        BankAccount starterAccount = new BankAccount(acctName, "42069");
+        BankAccount starterAccount = new BankAccount(acctName, randomId);
         //Asks user for opening deposit
         // Starts up the banking menu for the user
         starterAccount.showMenu();
@@ -30,11 +31,11 @@ class BankAccount {
     int balance;
     int previousTransaction;
     String customerName;
-    String customerId;
+    int customerId;
 
     // Bank Account Constructor
 
-    BankAccount(String custName, String custId) {
+    BankAccount(String custName, int custId) {
         customerName = custName;
         customerId = custId;
     }
@@ -79,7 +80,6 @@ class BankAccount {
         Scanner scanner = new Scanner(System.in);
 
         // User info prints when first brought to menu
-        System.out.println("\n");
         System.out.println("\n");
         System.out.println("Welcome: " + customerName);
         System.out.println("Your ID is: " + customerId);
