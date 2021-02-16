@@ -108,7 +108,7 @@ class BankAccount {
                 // Line to print balance
                 case 'A':
                     System.out.println("---------------------------------------------------------------------------");
-                    System.out.println("Your current balance: " + balance);
+                    System.out.println("Your current balance: $" + balance);
                     System.out.println("---------------------------------------------------------------------------");
                     break;
 
