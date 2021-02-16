@@ -1,4 +1,4 @@
-// package BankingApplication;
+package BankingApplication;
 
 //import scanner
 import java.util.InputMismatchException;
@@ -26,6 +26,7 @@ public class BankingApplication {
         // Asks user for opening deposit
         System.out.println("\nWhat is your opening deposit?");
 
+        //loop to catch exception
         while (openDepCheck) {
             try {
                 // Opening deposit is set to user input
@@ -131,6 +132,7 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to deposit?");
                     System.out.println("---------------------------------------------------------------------------");
+                    //loop to catch exception
                     while (numCheck) {
                         try {
                             double amount = scanner.nextDouble();
@@ -150,6 +152,7 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to withdraw?");
                     System.out.println("---------------------------------------------------------------------------");
+                    //loop to catch exception
                     while (numCheck) {
                         try {
                             double amount2 = scanner.nextDouble();
