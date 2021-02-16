@@ -9,26 +9,38 @@ public class BankingApplication {
     // My main method
     public static void main(String[] args) {
 
+        //boolean to catch type exception
+        boolean openDepCheck = true;
+        
         //Create a menu for options and input like you did in the C# app
         System.out.println("\nWhat is your name?");
         //scanner asks for account name
         Scanner initScan = new Scanner(System.in);
         //account name is set to the next user-input string
-        String acctName = initScan.next();
+        String acctName = initScan.nextLine();
         //random id number is generated up to 5 digits
         int randomId = (int)(Math.random() * 100000);
         // Creates starter account
         BankAccount starterAccount = new BankAccount(acctName, randomId);
         //Asks user for opening deposit
         System.out.println("\nWhat is your opening deposit?");
-        //Opening deposit is set to user input
-        double openDep = initScan.nextDouble();
-        //Deposit is made into the account
-        starterAccount.deposit(openDep);
-        //User is informed of success
-        System.out.println("Success! Your opening deposit was made for $" + openDep);
-        // Starts up the banking menu for the user
-        starterAccount.showMenu();
+        
+        while (openDepCheck) {
+            try {
+            //Opening deposit is set to user input
+            double openDep = Double.parseDouble(initScan.next());
+            //Deposit is made into the account
+            starterAccount.deposit(openDep);
+            //User is informed of success
+            System.out.println("\nSuccess! Your opening deposit was made for $" + openDep);
+            openDepCheck = false;
+        }
+        catch (NumberFormatException exception) {
+            System.out.println("Please enter a positive number for your opening deposit");
+        }
+    }
+    // Starts up the banking menu for the user
+    starterAccount.showMenu();
     }
 }
 
@@ -87,8 +99,7 @@ class BankAccount {
         Scanner scanner = new Scanner(System.in);
 
         // User info prints when first brought to menu
-        System.out.println("\n");
-        System.out.println("Welcome: " + customerName);
+        System.out.println("\nWelcome: " + customerName);
         System.out.println("Your ID is: " + customerId);
 
         // do while loop for taking user choices
