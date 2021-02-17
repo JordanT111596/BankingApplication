@@ -26,11 +26,14 @@ public class BankingApplication {
         // Asks user for opening deposit
         System.out.println("\nWhat is your opening deposit?");
 
-        //loop to catch exception
+        // loop to catch exception
         while (openDepCheck) {
             try {
                 // Opening deposit is set to user input
                 double openDep = Double.parseDouble(initScan.next());
+                if (openDep <= 0) {
+                    throw new NumberFormatException();
+                }
                 // Deposit is made into the account
                 starterAccount.deposit(openDep);
                 // User is informed of success
@@ -132,7 +135,7 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to deposit?");
                     System.out.println("---------------------------------------------------------------------------");
-                    //loop to catch exception
+                    // loop to catch exception
                     while (numCheck) {
                         try {
                             double amount = scanner.nextDouble();
@@ -152,7 +155,7 @@ class BankAccount {
                     System.out.println("---------------------------------------------------------------------------");
                     System.out.println("How much would you like to withdraw?");
                     System.out.println("---------------------------------------------------------------------------");
-                    //loop to catch exception
+                    // loop to catch exception
                     while (numCheck) {
                         try {
                             double amount2 = scanner.nextDouble();
