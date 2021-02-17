@@ -65,17 +65,25 @@ class BankAccount {
 
     // Method for making deposits
     void deposit(double amount) {
-        if (amount != 0) {
+        if (amount > 0) {
             balance = balance + amount;
             previousTransaction = amount;
+            // User is informed of success
+            System.out.println("\nSuccess! Your deposit was made for $" + amount);
+        } else {
+            System.out.println("Please attempt a VALID transaction next time");
         }
     }
 
     // Method for making withdrawls
     void withdraw(double amount) {
-        if (amount != 0) {
+        if (amount > 0 && balance - amount > 0) {
             balance = balance - amount;
             previousTransaction = -amount;
+            // User is informed of success
+            System.out.println("\nSuccess! Your withdrawal was made for $" + amount2);
+        } else {
+            System.out.println("Please attempt a VALID transaction next time");
         }
     }
 
@@ -140,8 +148,6 @@ class BankAccount {
                         try {
                             double amount = scanner.nextDouble();
                             deposit(amount);
-                            // User is informed of success
-                            System.out.println("\nSuccess! Your deposit was made for $" + amount);
                         } catch (InputMismatchException e) {
                             System.out.println(
                                     "\nTry again, but this time with an actual number if you want this to work!");
@@ -160,8 +166,6 @@ class BankAccount {
                         try {
                             double amount2 = scanner.nextDouble();
                             withdraw(amount2);
-                            // User is informed of success
-                            System.out.println("\nSuccess! Your withdrawal was made for $" + amount2);
                         } catch (InputMismatchException e) {
                             System.out.println(
                                     "\nTry again, but this time with an actual number if you want this to work!");
