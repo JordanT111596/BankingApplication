@@ -1,4 +1,4 @@
-package BankingApplication;
+// package BankingApplication;
 
 //import scanner
 import java.util.InputMismatchException;
@@ -72,6 +72,12 @@ class BankAccount {
             System.out.println("\nSuccess! Your deposit was made for $" + amount);
         } else {
             System.out.println("Please attempt a VALID transaction next time");
+            System.out.println("\nWhat would you like to do?");
+            System.out.println("A. Check Balance");
+            System.out.println("B. Deposit");
+            System.out.println("C. Withdraw");
+            System.out.println("D. Previous Transaction");
+            System.out.println("E. Exit");
         }
     }
 
@@ -81,9 +87,15 @@ class BankAccount {
             balance = balance - amount;
             previousTransaction = -amount;
             // User is informed of success
-            System.out.println("\nSuccess! Your withdrawal was made for $" + amount2);
+            System.out.println("\nSuccess! Your withdrawal was made for $" + amount);
         } else {
             System.out.println("Please attempt a VALID transaction next time");
+            System.out.println("\nWhat would you like to do?");
+            System.out.println("A. Check Balance");
+            System.out.println("B. Deposit");
+            System.out.println("C. Withdraw");
+            System.out.println("D. Previous Transaction");
+            System.out.println("E. Exit");
         }
     }
 
